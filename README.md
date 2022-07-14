@@ -2,10 +2,11 @@
 
 simple E-wallet with restful API based
 
-1. import sql to db
-2. change config on .env for db (optional)
-3. run "composer update" on engine folder
-4. done
+1. copy/clone to htdocs
+2. import sql to db
+3. change config on engine/env for db (optional)
+4. run "composer update" on engine folder
+5. access on browser no need to "php artisan serv"
 
 
 Current User:

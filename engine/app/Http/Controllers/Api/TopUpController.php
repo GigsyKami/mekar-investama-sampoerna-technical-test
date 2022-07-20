@@ -19,7 +19,11 @@ class TopUpController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'amount'  => 'required',
+            'amount'  => 'required|numeric|min:1',
+        ],[
+            'amount.required' => 'amount is required',
+            'amount.numeric' => 'amount harus angka',
+            'amount.min' => 'amount harus lebih besar dari 0',
         ]);
 
         if ($validator->fails()) {

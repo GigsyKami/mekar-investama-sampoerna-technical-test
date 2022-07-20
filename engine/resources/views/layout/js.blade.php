@@ -144,6 +144,7 @@
         var url = $(this).parents('form').attr('action')
         var amount = $('#amount').val()
         showLoading()
+        console.log('submit')
         $.ajax({
             url: url,
             method: 'post',
@@ -154,7 +155,13 @@
                 showToast('Success', res.message)
             },
             error: function(res) {
-                showToast('Error', res.responseJSON.message)
+                $.each(res.responseJSON.data, function(i, val){
+                    console.log(i)
+                    console.log(val)
+                    showToast('Error', val.text)
+                })
+
+                // showToast('Error', res.responseJSON.message)
             },
             complete: function(res) {
                 hideLoading()

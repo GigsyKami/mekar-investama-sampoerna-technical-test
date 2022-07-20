@@ -25,7 +25,9 @@ class Controller extends BaseController
         if ($errors instanceof MessageBag) {
             $msgbag = $errors;
             $errors = [];
-            foreach ($msgbag->messages() as $key => $value) $errors[] = ['attribute' => $key, 'text' => $value[0]];
+            foreach ($msgbag->messages() as $key => $value) {
+                $errors[] = ['attribute' => $key, 'text' => $value[0]];
+            };
         } else {
             $formattedError = [];
             foreach ($errors as $key => $value) {
